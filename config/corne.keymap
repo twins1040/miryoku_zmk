@@ -4,3 +4,15 @@
 #include "../miryoku/custom_config.h"
 #include "../miryoku/mapping/42/corne.h"
 #include "../miryoku/miryoku.dtsi"
+
+&mmv {
+    acceleration-exponent = <2>;
+    time-to-max-speed-ms = <500>;
+    delay-ms = <0>;
+};
+
+&u_mt {
+    quick-tap-ms = <200>;
+    require-prior-idle-ms = <125>;
+    flavor = "balanced";
+};
