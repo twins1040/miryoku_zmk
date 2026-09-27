@@ -35,17 +35,10 @@
             bindings = <&kp RSHFT>;
         };
 
-        // 좌측 코네 독립 부트로더 진입 (Q + W + E 동시 누름)
+        // 좌측 코네 부트로더 진입 (Q + W + E 동시 누름)
         combo_bootloader_left {
             timeout-ms = <60>;
             key-positions = <1 2 3>; // Q, W, E
-            bindings = <&bootloader>;
-        };
-
-        // 우측 코네 독립 부트로더 진입 (I + O + P 동시 누름)
-        combo_bootloader_right {
-            timeout-ms = <60>;
-            key-positions = <8 9 10>; // I, O, P
             bindings = <&bootloader>;
         };
     };
