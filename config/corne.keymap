@@ -16,3 +16,37 @@
     require-prior-idle-ms = <125>;
     flavor = "balanced";
 };
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        // 우측 J + K 즉시 Left Shift 활성화 (누르고 있는 동안 지속, 왼손 쌍자음용)
+        combo_shift_right {
+            timeout-ms = <50>;
+            key-positions = <19 20>; // J, K
+            bindings = <&kp LSHFT>;
+        };
+
+        // 좌측 D + F 즉시 Right Shift 활성화 (누르고 있는 동안 지속, 오른손 모음용)
+        combo_shift_left {
+            timeout-ms = <50>;
+            key-positions = <15 16>; // D, F
+            bindings = <&kp RSHFT>;
+        };
+
+        // 좌측 코네 독립 부트로더 진입 (좌측 엄지 3키 동시 누름)
+        combo_bootloader_left {
+            timeout-ms = <60>;
+            key-positions = <36 37 38>;
+            bindings = <&bootloader>;
+        };
+
+        // 우측 코네 독립 부트로더 진입 (우측 엄지 3키 동시 누름)
+        combo_bootloader_right {
+            timeout-ms = <60>;
+            key-positions = <39 40 41>;
+            bindings = <&bootloader>;
+        };
+    };
+};
