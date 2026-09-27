@@ -21,24 +21,24 @@
     combos {
         compatible = "zmk,combos";
 
-        // 우측 J + K 즉시 Left Shift 활성화 (누르고 있는 동안 지속, 왼손 쌍자음용)
+        // 우측 I + O 즉시 Left Shift 활성화 (누르고 있는 동안 지속, 왼손 쌍자음용)
         combo_shift_right {
             timeout-ms = <50>;
-            key-positions = <19 20>; // J, K
+            key-positions = <8 9>; // I, O
             bindings = <&kp LSHFT>;
         };
 
-        // 좌측 D + F 즉시 Right Shift 활성화 (누르고 있는 동안 지속, 오른손 모음용)
+        // 좌측 W + E 즉시 Right Shift 활성화 (누르고 있는 동안 지속, 오른손 모음용)
         combo_shift_left {
             timeout-ms = <50>;
-            key-positions = <15 16>; // D, F
+            key-positions = <2 3>; // W, E
             bindings = <&kp RSHFT>;
         };
 
-        // 좌측 코네 부트로더 진입 (Q + W + E 동시 누름)
+        // 좌측 코네 부트로더 진입 (하단 Z + X + C 동시 누름)
         combo_bootloader_left {
             timeout-ms = <60>;
-            key-positions = <1 2 3>; // Q, W, E
+            key-positions = <25 26 27>; // Z, X, C
             bindings = <&bootloader>;
         };
     };
