@@ -21,18 +21,20 @@
     combos {
         compatible = "zmk,combos";
 
-        // 우측 I + O 즉시 Left Shift 활성화 (누르고 있는 동안 지속, 왼손 쌍자음용)
-        combo_shift_right {
+        // 좌측 검지 세로 T + G → ESC (같은 손가락이라 롤링 오작동 없음)
+        combo_esc {
             timeout-ms = <50>;
-            key-positions = <8 9>; // I, O
-            bindings = <&kp LSHFT>;
+            layers = <U_BASE>;
+            key-positions = <5 17>; // T, G
+            bindings = <&kp ESC>;
         };
 
-        // 좌측 W + E 즉시 Right Shift 활성화 (누르고 있는 동안 지속, 오른손 모음용)
-        combo_shift_left {
+        // 우측 검지 세로 Y + H → 한/영 (F13)
+        combo_lang {
             timeout-ms = <50>;
-            key-positions = <2 3>; // W, E
-            bindings = <&kp RSHFT>;
+            layers = <U_BASE>;
+            key-positions = <6 18>; // Y, H
+            bindings = <&kp F13>;
         };
 
         // 좌측 코네 부트로더 진입 (하단 Z + X + C 동시 누름)
