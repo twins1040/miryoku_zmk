@@ -6,7 +6,6 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FIRMWARE_DIR="$ROOT/build_artifacts"
-VOLUME="${BOOTLOADER_VOLUME:-/Volumes/NICENANO}"
 WORKFLOW="my"
 
 build() {
@@ -40,17 +39,32 @@ build() {
     rm -rf "$dir"
 }
 
+bootloader_volume() {
+    local dir
+    for dir in /Volumes/*; do
+        [[ -f "$dir/INFO_UF2.TXT" ]] && { echo "$dir"; return; }
+    done
+    return 0
+}
+
 flash_side() {
     local side="$1"
     local uf2="$FIRMWARE_DIR/corne_${side}.uf2"
     [[ -f "$uf2" ]] || { echo "없음: $uf2" >&2; exit 1; }
 
     echo "[$side] USB 연결 후 부트로더 모드 진입 대기..."
-    while [[ ! -d "$VOLUME" ]]; do sleep 0.5; done
+    local volume=""
+    until [[ -n "$volume" ]]; do
+        sleep 0.5
+        volume="$(bootloader_volume)"
+    done
 
     echo "[$side] 플래시 중..."
-    cp "$uf2" "$VOLUME/" 2>/dev/null || true
-    while [[ -d "$VOLUME" ]]; do sleep 0.5; done
+    if ! cp -X "$uf2" "$volume/" && [[ -d "$volume" ]]; then
+        echo "[$side] 복사 실패" >&2
+        exit 1
+    fi
+    while [[ -d "$volume" ]]; do sleep 0.5; done
     echo "[$side] 완료"
 }
 
