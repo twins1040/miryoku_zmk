@@ -2,7 +2,7 @@
 // https://github.com/manna-harbour/miryoku
 
 
-// 홈로우 모드: S/D/F = GUI/ALT/CTRL (J/K/L 미러), Shift 는 양 바깥 엄지 (ESC: T+G, 한/영: Y+H 콤보)
+// 홈로우 모드: S/D/F = GUI/ALT/CTRL (J/K/L 미러), Shift 는 양 바깥 엄지 (ESC: R+F, 한/영: U+J 콤보)
 #define MIRYOKU_LAYER_BASE \
 &kp Q,             &kp W,             &kp E,             &kp R,             &kp T,             &kp Y,             &kp U,             &kp I,             &kp O,             &kp P,             \
 &kp A,             U_MT(LGUI, S),     U_MT(LALT, D),     U_MT(LCTRL, F),    &kp G,             &kp H,             U_MT(LCTRL, J),    U_MT(LALT, K),     U_MT(LGUI, L),     &kp SQT,           \

@@ -21,19 +21,19 @@
     combos {
         compatible = "zmk,combos";
 
-        // 좌측 검지 세로 T + G → ESC (같은 손가락이라 롤링 오작동 없음)
+        // 좌측 검지 세로 R + F → ESC (같은 손가락이라 롤링 오작동 없음)
         combo_esc {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             layers = <U_BASE>;
-            key-positions = <5 17>; // T, G
+            key-positions = <4 16>; // R, F
             bindings = <&kp ESC>;
         };
 
-        // 우측 검지 세로 Y + H → 한/영 (F13)
+        // 우측 검지 세로 U + J → 한/영 (F13)
         combo_lang {
-            timeout-ms = <50>;
+            timeout-ms = <30>;
             layers = <U_BASE>;
-            key-positions = <6 18>; // Y, H
+            key-positions = <7 19>; // U, J
             bindings = <&kp F13>;
         };
 
