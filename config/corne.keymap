@@ -21,19 +21,21 @@
     combos {
         compatible = "zmk,combos";
 
-        // 좌측 검지 세로 R + F → ESC (같은 손가락이라 롤링 오작동 없음)
+        // 좌측 홈로우 D + F → ESC (타이핑 중 롤링은 prior-idle 로 거름)
         combo_esc {
             timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
             layers = <U_BASE>;
-            key-positions = <4 16>; // R, F
+            key-positions = <15 16>; // D, F
             bindings = <&kp ESC>;
         };
 
-        // 우측 검지 세로 U + J → 한/영 (F13)
+        // 우측 홈로우 J + K → 한/영 (F13)
         combo_lang {
             timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
             layers = <U_BASE>;
-            key-positions = <7 19>; // U, J
+            key-positions = <19 20>; // J, K
             bindings = <&kp F13>;
         };
 
