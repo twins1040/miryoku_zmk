@@ -13,31 +13,12 @@
 
 &u_mt {
     quick-tap-ms = <200>;
-    require-prior-idle-ms = <125>;
     flavor = "balanced";
 };
 
 / {
     combos {
         compatible = "zmk,combos";
-
-        // 좌측 홈로우 D + F → 탭 ESC, 홀드 D+F 수식키 (타이핑 중 롤링은 prior-idle 로 거름)
-        combo_esc {
-            timeout-ms = <30>;
-            require-prior-idle-ms = <150>;
-            layers = <U_BASE>;
-            key-positions = <15 16>; // D, F
-            bindings = <&u_mt LA(LCTRL) ESC>;
-        };
-
-        // 우측 홈로우 J + K → 탭 한/영 (F13), 홀드 J+K 수식키
-        combo_lang {
-            timeout-ms = <30>;
-            require-prior-idle-ms = <150>;
-            layers = <U_BASE>;
-            key-positions = <19 20>; // J, K
-            bindings = <&u_mt LA(LCTRL) F13>;
-        };
 
         // 좌측 코네 부트로더 진입 (하단 Z + X + C 동시 누름)
         combo_bootloader_left {
